@@ -12,7 +12,7 @@ function setActiveLink(){
 
   // this is incase your project isn't in the root directory of your url
   // for example localhost/ActiveNavLink/index.html
-  //projectPrefix = "/ActiveNavLink/";
+  projectPrefix = "/apae-app/";
 
   // loop through each nav li
   $('.navbar-main__btn').each(function(){
@@ -25,7 +25,7 @@ function setActiveLink(){
       return;
 
     // add the project prefix
-    href =  href;
+    href = projectPrefix + href;
     
     // check if the menu item is equal to the current url    
     if(url.substring(0, href.length) == href){
