@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>APAE | Eventos</title>
+  <meta name="author" content="Guilherme Carvalho Lima">
+  <meta name="description" content="Desenvolvedor web front-end interessado pelas tecnologias web e conceitos como cross-browser, responsive design, otimização, UX e web design.">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta property="og:url" content="http://www.beemo.com.br/apaeprototipo">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="APAE | App Prototipo">
+  <meta property="og:description" content="Desenvolvedor web front-end interessado pelas tecnologias web e conceitos como cross-browser, responsive design, otimização, UX e web design.">
+  <meta property="og:image" content="http://www.beemo.com.br/portfolio/img/thumbnail.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/screen.css" type="text/css">
+  <link rel="stylesheet" href="css/vendors/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="css/vendors/devices.min.css" type="text/css">
+  <link rel="stylesheet" href="css/vendors/calendar.css" type="text/css">
+  <link rel="stylesheet" href="css/vendors/calendar_custom1.css" type="text/css">
+  <!--Modernizr-->
+  <script type="text/javascript" src="js/vendors/modernizr.js"></script>
+  <!--Plugin que evita a necessidade do uso de prefixos no css (-moz, -webkit, -ms)-->
+  <script src="js/vendors/prefixfree.min.js"></script>
+</head>
+<body>
+  <section class="eventos" style="text-align:center;">
+    <div class="marvel-device iphone4s silver">
+      <div class="top-bar"></div>
+      <div class="sleep"></div>
+      <div class="volume"></div>
+      <div class="camera"></div>
+      <div class="sensor"></div>
+      <div class="speaker"></div>
+      <div class="screen">
+        <img src="img/notification-bar.png" alt="Barra de notificação IOS." width="100%" style="display: block;">
+        <nav class="navbar-back"><a href="index.html"><i class="fa fa-reply fa-2x"></i></a><h1>Eventos</h1></nav>
+        <section style="height: 360px; overflow-x: hidden;">
+          <div class="custom-header clearfix">          
+            <h3 class="custom-month-year">
+              <span id="custom-month" class="custom-month">September</span>
+              <span id="custom-year" class="custom-year">2014</span>
+              <nav>
+                <span id="custom-prev" class="custom-prev"></span>
+                <span id="custom-next" class="custom-next"></span>
+                <span id="custom-current" class="custom-current" title="Got to current date"></span>
+              </nav>
+            </h3>
+          </div>
+          <div id="calendar" class="fc-calendar-container"></div>
+        </section>
+        <nav class="navbar">
+          <ul class="navbar-main">
+            <li class="navbar-main__btn"><a href="/sobre.html"><i class="fa fa-info-circle fa-2x"></i></a></li>
+            <li class="navbar-main__btn"><a href="/eventos.html"><i class="fa fa-calendar fa-2x"></i></a></li>
+            <li class="navbar-main__btn"><a href="/blog.html"><i class="fa fa-newspaper-o fa-2x"></i></a></li>
+            <li class="navbar-main__btn"><a href="/local.html"><i class="fa fa-map-marker fa-2x"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="home"></div>
+      <div class="bottom-bar"></div>
+    </div>
+  </section>
+  <script type="text/javascript" src="js/vendors/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/vendors/menu-current.js"></script>
+  <script type="text/javascript" src="js/vendors/jquery.calendario.js"></script>
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript">
+
+      $(function() {
+      
+        var cal = $( '#calendar' ).calendario( {
+          weeks : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
+          weekabbrs : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+          months : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubbro', 'Novembro', 'Dezembro' ],
+          monthabbrs : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+            onDayClick : function( $el, $contentEl, dateProperties ) {
+
+              for( var key in dateProperties ) {
+                console.log( key + ' = ' + dateProperties[ key ] );
+              }
+
+            },
+            caldata : codropsEvents
+          } ),
+          $month = $( '#custom-month' ).html( cal.getMonthName() ),
+          $year = $( '#custom-year' ).html( cal.getYear() );
+
+        $( '#custom-next' ).on( 'click', function() {
+          cal.gotoNextMonth( updateMonthYear );
+        } );
+        $( '#custom-prev' ).on( 'click', function() {
+          cal.gotoPreviousMonth( updateMonthYear );
+        } );
+        $( '#custom-current' ).on( 'click', function() {
+          cal.gotoNow( updateMonthYear );
+        } );
+
+        function updateMonthYear() {        
+          $month.html( cal.getMonthName() );
+          $year.html( cal.getYear() );
+        }
+
+        // you can also add more data later on. As an example:
+        /*
+        someElement.on( 'click', function() {
+          
+          cal.setData( {
+            '03-01-2013' : '<a href="#">testing</a>',
+            '03-10-2013' : '<a href="#">testing</a>',
+            '03-12-2013' : '<a href="#">testing</a>'
+          } );
+          // goes to a specific month/year
+          cal.goto( 3, 2013, updateMonthYear );
+
+        } );
+        */
+      
+      });
+  </script>
+</body>
+</html>
