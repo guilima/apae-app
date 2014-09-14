@@ -14,3 +14,39 @@ var codropsEvents = {
 	//'12-DD-YYYY' : '<span>[12-DD-YYYY] Whole month and Year</span>',
 	'TODAY' : '<span>Hoje</span>'
 };
+
+ $(function() {
+      
+        var cal = $( '#calendar' ).calendario( {
+          weeks : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
+          weekabbrs : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+          months : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubbro', 'Novembro', 'Dezembro' ],
+          monthabbrs : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+            onDayClick : function( $el, $contentEl, dateProperties ) {
+
+              for( var key in dateProperties ) {
+                console.log( key + ' = ' + dateProperties[ key ] );
+              }
+
+            },
+            caldata : codropsEvents
+          } ),
+          $month = $( '#custom-month' ).html( cal.getMonthName() ),
+          $year = $( '#custom-year' ).html( cal.getYear() );
+
+        $( '#custom-next' ).on( 'click', function() {
+          cal.gotoNextMonth( updateMonthYear );
+        } );
+        $( '#custom-prev' ).on( 'click', function() {
+          cal.gotoPreviousMonth( updateMonthYear );
+        } );
+        $( '#custom-current' ).on( 'click', function() {
+          cal.gotoNow( updateMonthYear );
+        } );
+
+        function updateMonthYear() {        
+          $month.html( cal.getMonthName() );
+          $year.html( cal.getYear() );
+        }
+      
+      });

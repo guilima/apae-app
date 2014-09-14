@@ -2,6 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <script type="text/javascript" src="js/vendors/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/vendors/jquery.smoothState.js" async="true" defer="defer"></script>
+  <script type="text/javascript" src="js/myfunction.smoothState.js" async="true" defer="defer"></script>
+  <!--Modernizr-->
+  <script type="text/javascript" src="js/vendors/modernizr.js"></script>
+  <!--Plugin que evita a necessidade do uso de prefixos no css (-moz, -webkit, -ms)-->
+  <script src="js/vendors/prefixfree.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>APAE | local</title>
   <meta name="author" content="Guilherme Carvalho Lima">
@@ -16,12 +23,8 @@
   <link rel="stylesheet" href="css/screen.css" type="text/css">
   <link rel="stylesheet" href="css/vendors/animate.min.css" type="text/css">
   <link rel="stylesheet" href="css/vendors/devices.min.css" type="text/css">
-  <!--Modernizr-->
-  <script type="text/javascript" src="js/vendors/modernizr.js"></script>
-  <!--Plugin que evita a necessidade do uso de prefixos no css (-moz, -webkit, -ms)-->
-  <script src="js/vendors/prefixfree.min.js"></script>
 </head>
-<body>
+<body id="content" class="m-scene">
   <section class="eventos" style="text-align:center;">
     <div class="marvel-device iphone4s silver">
       <div class="top-bar"></div>
@@ -33,7 +36,8 @@
       <div class="screen">
         <img src="img/notification-bar.png" alt="Barra de notificação IOS." width="100%" style="display: block;">
         <nav class="navbar-back"><a href="index.html"><i class="fa fa-reply fa-2x"></i></a><h1>Local</h1></nav>
-        <section id="content" style="height: 360px; overflow-x: hidden;">
+        <section style="height: 360px; overflow-x: hidden;">
+        <div class="scene_element scene_element--fadeinright">
           <img src="http://maps.googleapis.com/maps/api/staticmap?center=-23.599732, -46.645952&zoom=17&size=360x150">
           <div class="contato">
             <p>R. Loefgreen, 2109 - Vila Clementino<br>
@@ -41,6 +45,7 @@
             04040-000, Brasil<br>
             <i class="fa fa-phone-square"></i> (11) 5080-7000</p>
           </div>
+        </div>
         </section>
         <nav class="navbar">
           <ul class="navbar-main">
@@ -55,9 +60,6 @@
       <div class="bottom-bar"></div>
     </div>
   </section>
-  <script type="text/javascript" src="js/vendors/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="js/vendors/menu-current.js"></script>
-  <script type="text/javascript" src="js/vendors/jquery.smoothState.js"></script>
-  <script type="text/javascript" src="js/myfunction.smoothState.js"></script>
 </body>
 </html>
