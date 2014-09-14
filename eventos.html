@@ -22,8 +22,11 @@
   <script type="text/javascript" src="js/vendors/modernizr.js"></script>
   <!--Plugin que evita a necessidade do uso de prefixos no css (-moz, -webkit, -ms)-->
   <script src="js/vendors/prefixfree.min.js"></script>
+  <script type="text/javascript" src="js/vendors/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/vendors/jquery.smoothState.js"></script>
+  <script type="text/javascript" src="js/myfunction.smoothState.js"></script>
 </head>
-<body>
+<body id="content" class="m-scene">
   <section class="eventos" style="text-align:center;">
     <div class="marvel-device iphone4s silver">
       <div class="top-bar"></div>
@@ -35,7 +38,8 @@
       <div class="screen">
         <img src="img/notification-bar.png" alt="Barra de notificação IOS." width="100%" style="display: block;">
         <nav class="navbar-back"><a href="index.html"><i class="fa fa-reply fa-2x"></i></a><h1>Eventos</h1></nav>
-        <section class="content" style="height: 360px; overflow-x: hidden;">
+        <section style="height: 360px; overflow-x: hidden;">
+        <div class="scene_element scene_element--fadeinright">
           <div class="custom-header clearfix">          
             <h3 class="custom-month-year">
               <span id="custom-month" class="custom-month">September</span>
@@ -48,6 +52,7 @@
             </h3>
           </div>
           <div id="calendar" class="fc-calendar-container"></div>
+        </div>
         </section>
         <nav class="navbar">
           <ul class="navbar-main">
@@ -62,7 +67,6 @@
       <div class="bottom-bar"></div>
     </div>
   </section>
-  <script type="text/javascript" src="js/vendors/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="js/vendors/menu-current.js"></script>
   <script type="text/javascript" src="js/vendors/jquery.calendario.js"></script>
   <script type="text/javascript" src="js/data.js"></script>

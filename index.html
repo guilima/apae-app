@@ -2,6 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
+    <!--Modernizr-->
+  <script type="text/javascript" src="js/vendors/modernizr.js"></script>
+  <!--Plugin que evita a necessidade do uso de prefixos no css (-moz, -webkit, -ms)-->
+  <script src="js/vendors/prefixfree.min.js"></script>
+  <script type="text/javascript" src="js/vendors/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/vendors/jquery.smoothState.js"></script>
+  <script type="text/javascript" src="js/myfunction.smoothState.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>APAE | App</title>
   <meta name="author" content="Guilherme Carvalho Lima">
@@ -16,12 +23,8 @@
   <link rel="stylesheet" href="css/screen.css" type="text/css">
   <link rel="stylesheet" href="css/vendors/animate.min.css" type="text/css">
   <link rel="stylesheet" href="css/vendors/devices.min.css" type="text/css">
-  <!--Modernizr-->
-  <script type="text/javascript" src="js/vendors/modernizr.js"></script>
-  <!--Plugin que evita a necessidade do uso de prefixos no css (-moz, -webkit, -ms)-->
-  <script src="js/vendors/prefixfree.min.js"></script>
 </head>
-<body>
+<body id="content" class="m-scene">
   <section style="text-align:center;">
     <div class="marvel-device iphone4s silver">
       <div class="top-bar"></div>
@@ -32,9 +35,11 @@
       <div class="speaker"></div>
       <div class="screen">
         <img src="img/notification-bar.png" alt="Barra de notificação IOS." width="100%" style="display: block;">
-        <section class="content" style="height: 360px; overflow-x: hidden;">
+        <section style="height: 360px; overflow-x: hidden;">
+        <div class="scene_element scene_element--fadeinright">
           <img class="logo-apae" src="img/logo.png" alt="Logo da APAE. Mãos acolhendo um girassol.">
-        </sction>
+        </div>
+        </section>
         <nav class="navbar">
           <ul class="navbar-main">
             <li class="navbar-main__btn"><a href="sobre.html"><i class="fa fa-info-circle fa-2x"></i></a></li>
@@ -48,7 +53,6 @@
       <div class="bottom-bar"></div>
     </div>
   </section>
-  <script type="text/javascript" src="js/vendors/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="js/vendors/menu-current.js"></script>
 </body>
 </html>
